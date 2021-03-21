@@ -12,6 +12,11 @@ using internal linker script:
 OUTPUT_FORMAT("elf64-littleriscv", "elf64-littleriscv",
 	      "elf64-littleriscv")
 OUTPUT_ARCH(riscv)
+MEMORY
+{
+       /* qemu-system-risc64 virt machine */
+       RAM (rwx)  : ORIGIN = 0x80000000, LENGTH = 128M
+}
 ENTRY(_start)
 SEARCH_DIR("/opt/riscv/riscv64-unknown-elf/lib");
 SECTIONS
