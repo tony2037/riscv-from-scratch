@@ -19,7 +19,7 @@ emulate:
 device-tree:
 	dtcdtc -I dtb -O dts -o riscv64-virt.dts riscv64-virt.dtb
 
-.PHONY: debugger:
+.PHONY: debugger
 debugger:
 	echo "target remote :1234"
 	riscv64-unknown-elf-gdb kernel
