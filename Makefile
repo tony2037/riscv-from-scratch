@@ -7,9 +7,12 @@ kernel = kernel
 kernel: riscv64-virt.ld crt0.s add.c
 	$(CC) $(CFLAGS)$^ -o kernel
 
+uart: riscv64-virt.ld crt0.s ns16550a.s uart.c
+	$(CC) $(CFLAGS)$^ -o ns16550a
+
 .PHONY: clean
 clean:
-	$(RM) kernel
+	$(RM) kernel ns16550a
 
 .PHONY: emulate
 emulate:
