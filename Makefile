@@ -17,7 +17,7 @@ emulate:
 
 .PHONY: device-tree
 device-tree:
-	dtcdtc -I dtb -O dts -o riscv64-virt.dts riscv64-virt.dtb
+	dtc -I dtb -O dts -o riscv64-virt.dts riscv64-virt.dtb
 
 .PHONY: debugger
 debugger:
