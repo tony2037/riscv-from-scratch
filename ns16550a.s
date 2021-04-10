@@ -28,6 +28,21 @@ uart_put_char:
     # copies least-significant byte of register a5 onto the stack at
     # address (frame pointer - 17 bytes)
     sb a5,-17(s0)
+    # load UART base address, message and message length
+    li s1, 0x10000000
+    la s2, message
+    addi s3, s2, 13
+
+loop:
+    lb s4, 0(s2)
+    sb s4, 0(s1)
+    addi s2, s2, 1
+    blt s2, s3, loop
+
     .cfi_endproc
+
+message:
+    # "Hello, bear\n" is 13 characters long
+    .string "Hello, bear\n"
 
 .end
