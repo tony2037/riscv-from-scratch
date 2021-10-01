@@ -1,6 +1,7 @@
 .section .init, "ax"
 .global _start
 _start:
+    /* see: https://twilco.github.io/riscv-from-scratch */
     /* see: https://stackoverflow.com/questions/29527623/in-assembly-code-how-cfi-directive-works/33732119#33732119 */
     /* also see: https://sourceware.org/binutils/docs/as/CFI-directives.html */
     .cfi_startproc
